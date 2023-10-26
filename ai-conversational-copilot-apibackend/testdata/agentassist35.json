@@ -1,0 +1,26 @@
+{"customTemplate": "Here is the list of topics to be covered during all calls. \n1. Customer name \n2. Customer’s phone number\n3. Accident location\n4. When the accident happened including date and time\n5. Was anyone injured during the accident\n6. Was there any damage to the car\n7. Did customer take any pictures of the car damage or the accident scene", 
+"transcript": "Thank you for calling Contoso Insurance. My name is Michael Brown How may I help you?\nI had an accident. I am calling to file a new claim \nOh, I am so sorry to hear that.  Was anyone injured in the accident? \n No, nobody was injured but there is some damage to the car.  \nI am relieved to hear that no one is injured. Can I get your name please?  \nMy name is John Brown \n Can you verify your date of birth?\nIt is October 29th, 1984\nAnd finally, what is your policy number \nMy policy is 8675309 \nOk, where did the accident happen? \nIt happened in the Walmart parking lot in the north side of Chicago. It was raining heavily, and I guess the other car didn’t see my car when backing up."}
+
+Here is the list of topics to be covered during this call. 
+1. Was anyone injured during the accident 
+2. Customer name 
+3. Accident location 
+4. When the accident happened including date and time 
+5. Verify phone number 
+6. List all damages to vehicle and property 
+7. Did customer take any pictures of the car damage or the accident scene 
+8. Was the air bag deployed 
+9. Was police called to the accident scene 
+
+
+Here is the list of topics to be covered during this call. 
+1. Was anyone injured during the accident 
+2. Customer name 
+3. Accident location 
+4. When the accident happened including date and time 
+5. Verify phone number 
+6. Was there any damage to the car <yes/no/NA)
+7. List all damages to vehicle and property
+8. Did customer take any pictures of the car damage or the accident scene 
+9. Was the air bag deployed 
+10. Was police called to the accident scene 

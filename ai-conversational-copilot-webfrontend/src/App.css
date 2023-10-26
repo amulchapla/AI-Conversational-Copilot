@@ -1,0 +1,92 @@
+/* App_WorkingUI.css */
+
+/* Global styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: auto;
+  align-self: center;
+}
+
+.app-container {
+  color: #1a1919; 
+  background-color: #e6ebed;
+}
+
+text-area-container {
+  display: flex;
+  flex-direction:row;
+}
+
+/* STT Text area */
+#transcriptTextarea {   
+  background-color: rgb(243, 246, 246);
+  color: black;
+  border: 1px groove rgb(112, 111, 111);
+  height: 250px;
+  resize: none;
+  overflow-y: auto;
+}
+
+/* Output code block */
+.nlpoutput-display {
+  background-color: #fdfbfb;
+  height: 250px;
+  overflow-y: auto;
+  white-space: pre-wrap;
+  border: 1px groove rgb(75, 73, 73);
+}
+
+.stt-title {
+  color: 'black';
+  font-size:large;
+}
+
+.nlp-title {
+  color: 'black';
+  font-size:large;
+}
+
+/* NLP Text area */
+#nlpTextarea {  
+  background-color: rgb(204, 236, 23);
+  color: black;
+  border: 2px groove white;
+  height: 200px;
+  resize: none;
+  overflow-y: auto;
+}
+
+.scrolltext-area-container {
+  display: flex;
+  height: 250px;
+  overflow-x: auto; /* Enable horizontal scrolling */
+  gap: 10px; /* Adjust the gap between text fields */
+}
+
+.form-control { 
+  color: "black"; 
+  overflow-y: auto;
+  border: 2px groove white;
+  font-size: 14px;
+  white-space: pre-wrap;
+}
+
+.button-container {
+  display: flex;
+  margin-left: 25pc;
+}
+
+.copilotsection-container {
+  border: 1px solid #3d56e3;
+  padding: 10px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+}
+
+.copilotsetting-container {
+  margin-top: 10px;
+}
+
+
+
+
