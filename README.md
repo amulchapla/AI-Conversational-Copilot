@@ -8,7 +8,7 @@ AI powered Conversational copilot is a web-based app that enables you to simulat
 * The same pattern could be used to drive earlier actions for example for customer churn & upsell opportunities.
 * This solution can help with agent-assist and virtual agents use cases. The pattern could be used to drive better digital experiences for customers and employees leveraging GPT-4 model's ability to understand long-form text, images and ability to reason across the diverse data input.
 
-Key technical components of this part of the accelerator are:
+**Key technical components of this part of the accelerator are:**
 * Transcription of live audio stream using Azure AI Speech Service    
 * Real-time conversation analysis to provide live guidance (using Azure OpenAI GPT-4 Chat API)
 * Image analysis to extract key information from images (using Azure OpenAI GPT-4 Vision API)
