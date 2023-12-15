@@ -2,25 +2,25 @@
 
 AI powered Conversational copilot is a web-based app that enables you to simulate Agent-Customer interactions (in any line of business) and shows the power of multimodal Azure AI to augment the human and acts as a very effective copilot. App uses Azure Speech, Azure OpenAI GPT-4 (including GPT Vision) and other AI capabilities to power the copilot experience.
 
-Customer Interactions using multimodal Azure AI
+**This solution highlights Customer Interactions using multimodal Azure AI**
 * This solution shows a customer interaction where it intercepts voice, text and image data in real-time to power a better and more efficient experience.
 * The real-time pattern presented here can be applied to many business use cases to expedite business insights as well as help make faster business decisions.
 * The same pattern could be used to drive earlier actions for example for customer churn & upsell opportunities.
+* This solution can help with agent-assist and virtual agents use cases. The pattern could be used to drive better digital experiences for customers and employees leveraging GPT-4 model's ability to understand long-form text, images and ability to reason across the diverse data input.
 
 Key technical components of this part of the accelerator are:
-    * Transcription of live audio stream using Azure AI Speech Service    
-    * Real-time conversation analysis to provide live guidance (for agent assistance/coaching)
-    * Image analysis using GPT-4 Vision to extract key information from images
-    * Conversation summarization using Azure OpenAI Service
-    * Entity extraction + PII detection and redaction using Azure Language Service
-    * Extract business insights & conversation details using Azure OpenAI Service
+* Transcription of live audio stream using Azure AI Speech Service    
+* Real-time conversation analysis to provide live guidance (using Azure OpenAI GPT-4 Chat API)
+* Image analysis to extract key information from images (using Azure OpenAI GPT-4 Vision API)
+* Conversation summarization (using Azure OpenAI completion API)
+* Entity extraction + PII detection and redaction (using Azure Language Service)
+* Extract business insights & conversation details (using Azure OpenAI completion API)
 
-This solution can help with agent-assist and virtual agents use cases. The pattern could be used to drive better digital experiences for customers and employees leveraging GPT-4 model's ability to understand long-form text, images and ability to reason across the diverse data input.
-
+## Architecture
 Below architecture diagram shows the key components of this solution. 
 <img src="common/images/ai-conversation-copilot-techarch.png" align="center" />
 
-The sample has two runtime components: 
+The solution has two runtime components: 
 * **ai-conversational-copilot-apibackend** is an Express-based backend API app. It orchestrates calls to multiple Azure AI services (Azure OpenAI, Azure Speech, Azure Language) and provides a single API endpoint for the frontend webapp to consume.
 
 * **ai-conversational-copilot-webfrontend** is a React-based web UI. This is a frontend webapp that has UI rendering components and also calls the backend API to get real-time insights from Azure AI services.
@@ -30,12 +30,12 @@ The sample has two runtime components:
 1. This article assumes that you have an Azure account. If you don't have an Azure account and subscription, [try the Azure account for free](https://azure.microsoft.com/en-us/free/search/).
 2. Create a [Azure Speech resource](https://portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices) in the Azure portal.
 3. Create a [Azure Language resource](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) in the Azure portal.
-4. Create a [Azure OpenAI resource](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=microsoft_openai_tip#create/Microsoft.CognitiveServicesOpenAI?WT.mc_id=academic-84928-cacaste) in the Azure portal. Note: OpenAI is currently in preview and is not available in all regions. You can check the [OpenAI documentation](https://docs.microsoft.com/en-us/azure/cognitive-services/openai/overview?WT.mc_id=academic-84928-cacaste) for more information. This app is using Azure OpenAI Completion API, Chat API & GPT-4 Vision. So you will need to create model deployments for completion API, Chat API and GPT-4 Vision.
+4. Create a [Azure OpenAI resource](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=microsoft_openai_tip#create/Microsoft.CognitiveServicesOpenAI?WT.mc_id=academic-84928-cacaste) in the Azure portal. You can check the [OpenAI documentation](https://docs.microsoft.com/en-us/azure/cognitive-services/openai/overview?WT.mc_id=academic-84928-cacaste) for more information. This app is using Azure OpenAI Completion API, Chat API & GPT-4 Vision. So you will need to create model deployments for completion API, Chat API and GPT-4 Vision.
 5. Install [Node.js](https://nodejs.org/en/download/) on your laptop to run the frontend and backend apps on your local machine.
 
-## How to Setup and Run this real-time solution component
+## How to setup this solution
 
-1. Clone this repo. This repo has two apps as shown in the architecture diagram above: 
+1. Clone this repo. This repo has two apps: 
     * ai-conversational-copilot-webfrontend folder is for the "ReactJS Frontend" web UI component and
     * ai-conversational-copilot-apibackend folder is for the "ExpressJS Backend" API backend component 
 
@@ -63,10 +63,11 @@ The sample has two runtime components:
     +   Start frontend web app by running `‘npm start’`. If you get port confict with port 8080 then update package.json file to use any other port (Eg: 8081)
     +	Open a browser and go to `http://localhost:8081` to access the app. 
     +   Click on the "Start Converstation" button on the web page and start talking. You should see transcription displayed on the web page in real-time (an example shown below). You can change spoken language under "Settings". Note that Live Guidance is disabled by default. Output below is with Live Guidance enabled.
+    +   Remember to click on "End Conversation" to stop live transcription and insights.
 
     <img src="common/images/sampleoutput-liveguidance-enabled.png " align="center" />
 
-    + Remember to click on "End Conversation" to stop live transcription and insights.
+    
 
 
 ## Selecting AI Features to use
