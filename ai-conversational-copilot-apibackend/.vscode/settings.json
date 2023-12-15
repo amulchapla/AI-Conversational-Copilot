@@ -1,3 +1,10 @@
 {
-    "appService.deploySubpath": "."
+    "appService.deploySubpath": ".",
+    "appService.zipIgnorePattern": [
+        ".git",
+        ".github",
+        ".vscode",
+        "Properties",
+        "node_modules",
+        "README.md"]
 }

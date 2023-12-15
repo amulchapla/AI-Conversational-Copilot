@@ -67,12 +67,12 @@ export async function getGPTCustomPromptCompletion(requestText: string, customPr
   }
 }
 
-export async function getGPTAgentAssist35(transcriptText: string, customTemplate: string): Promise<any> {
+export async function gptLiveGuidance(transcriptText: string, customTemplate: string): Promise<any> {
   try {
     //ChatGPT Agent Assist
     const data = { transcript: transcriptText, customTemplate: customTemplate};
     const headers = { 'Content-Type': 'application/json' };
-    const res = await axios.post('/openai/gpt/agentassist35', data, { headers });
+    const res = await axios.post('/openai/gpt/liveguidance', data, { headers });
     return res;
   } catch (err) {
     return {
@@ -81,19 +81,36 @@ export async function getGPTAgentAssist35(transcriptText: string, customTemplate
   }
 }
 
-export async function getGPTAgentAssist4(transcriptText: string, customTemplate: string): Promise<any> {
+//Get images from Azure Blob - input blobprefix which can be case number
+export async function getImageSasUrls(caseNumber: string): Promise<any> {
   try {
     //ChatGPT Agent Assist
-    const data = { transcript: transcriptText, customTemplate: customTemplate};
+    const data = { blobprefix: caseNumber};
     const headers = { 'Content-Type': 'application/json' };
-    const res = await axios.post('/openai/gpt/agentassist4', data, { headers });
+    const res = await axios.post('/data/storage/listBlobs', data, { headers });
     return res;
   } catch (err) {
     return {
-      data: 'Error occurred while invoking backend API: ' + err,
+      data: 'Error occurred while invoking backend API to get images: ' + err,
     };
   }
 }
+
+//Get image insights using GPTV
+export async function getGPTVInsights(imageList: []): Promise<any> {
+  try {
+    //ChatGPT Agent Assist
+    const data = imageList;
+    const headers = { 'Content-Type': 'application/json' };
+    const res = await axios.post('/openai/gptv/imageinsights', data, { headers });
+    return res;
+  } catch (err) {
+    return {
+      data: 'Error occurred while invoking backend API to GPTV insights: ' + err,
+    };
+  }
+}
+
 
 
   

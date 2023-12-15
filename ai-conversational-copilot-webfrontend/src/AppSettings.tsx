@@ -38,4 +38,19 @@ const SpokenLanguageOptions = () => {
   return options;
 };
 
+export const ScenarioOptions = () => {
+  const scenarios = [
+    { key: 'ins-auto', text: 'Insurance (Auto-Claim)' },
+    { key: 'ins-life', text: 'Insurance (Life-Quote)' },
+    { key: 'bank-newac', text: 'Bank (New Account)' },
+    { key: 'capmt-wealthmgt', text: 'Capital Markets (Wealth Mgt)' },
+    { key: 'health', text: 'Healthcare' },
+    { key: 'retail', text: 'Retail' },
+    { key: 'travel', text: 'Travel' } 
+  ];
+
+  return scenarios;
+};
+
 export default SpokenLanguageOptions;
+

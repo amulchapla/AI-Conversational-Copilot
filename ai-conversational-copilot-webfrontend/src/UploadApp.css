@@ -1,0 +1,61 @@
+
+
+body {  
+    margin: 0;  
+    padding: 0;  
+    font-family: sans-serif;  
+  }  
+  
+  .UploadApp {  
+    text-align: center;  
+    max-width: 375px; /* Set a max-width to simulate a mobile device */  
+    margin: 0 auto; /* Center the app in the viewport */  
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1); /* Give the app a slight drop shadow for depth */  
+  }  
+    
+  .App-header  {  
+    background-color: #171717;   
+    padding: 1px;  
+    color: white;  
+    font-size: 24px;
+    text-align: left;   
+    margin-bottom: 0;
+  }  
+  
+  .App-header .photo-collection {  
+    margin-top: 5px; 
+    font-size: 20px; /* Set this to the font size you want */  
+    color: #d2d2d6; /* Set this to the color you want */  
+  }  
+    
+  .App-body {  
+    background-color:  #e3e9ed; /* Change to a lighter color */  
+    padding: 20px;  
+  }  
+    
+  button {  
+    background-color: #676565;  
+    border: none;  
+    color: white;  
+    padding: 10px 10px;  
+    text-align: center;  
+    text-decoration: none;  
+    display: inline-block;  
+    font-size: 16px;  
+    margin: 10px 2px;  
+    cursor: pointer;    
+    border-radius: 15px;   
+  }  
+    
+  input[type="file"] {  
+    margin: 20px 0;  
+  }  
+  
+  .image-preview img {  
+    width: 100px; /* Change this to the thumbnail size you want */  
+    height: 100px;  
+    object-fit: cover;  
+    margin: 0px;  
+  }  
+  
+  

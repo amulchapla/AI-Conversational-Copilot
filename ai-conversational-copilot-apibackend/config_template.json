@@ -9,15 +9,16 @@
         "openai_endpoint": "<Azure OpenAI service endpoint for Completion API model>",
         "openai_key": "<Azure OpenAI service API key for Completion API model>",
         "openai_deployment_name": "<Azure OpenAI service deployment name for Completion API model>",
-        "aoai_chatgpt_35_endpoint": "<Azure OpenAI service endpoint for Chat API GPT 3.5 model>",
-        "aoai_chatgpt_35_key": "<Azure OpenAI service API key for Chat API GPT 3.5 model>",
-        "aoai_chatgpt_35_deployment_name": "<Azure OpenAI service deployment name for Chat API GPT 3.5 model>",
-        "aoai_chatgpt_35_api_version": "2023-07-01-preview",
         "aoai_chatgpt_4_endpoint": "<Azure OpenAI service endpoint for Chat API GPT 4 model>",
         "aoai_chatgpt_4_key": "<Azure OpenAI service API key for Chat API GPT 4 model>",
         "aoai_chatgpt_4_deployment_name": "<Azure OpenAI service deployment name for Chat API GPT 4 model>",
         "aoai_chatgpt_4_api_version": "2023-07-01-preview",
         "consmosdb_connection_string": "<COSMOS DB CONNECTION STRING FOR LOGGING - USES NOSQL COSMOS DEPLOYMENT>",
-        "web_port": "8080"
+        "web_port": "8080",
+        "azure_storage_connection_string" : "connection string for Azure Storage Account - used for image analysis only",
+        "azure_storage_account_name" : "Azure Storage Account Name - used for image analysis only",
+        "azure_storage_container_name" : "Azure Storage Container Name - used for image analysis only",
+        "gptv_endpoint" : "Azure OpenAI GPT4-V endpoint - used for image analysis only",
+        "gptv_key" : "Azure OpenAI GPT4-V key - used for image analysis only"
     }
 ]

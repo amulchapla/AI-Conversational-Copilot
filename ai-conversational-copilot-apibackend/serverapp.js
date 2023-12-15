@@ -10,6 +10,7 @@ app.use(cors());
 // get router
 const openaiRouter = require('./routes/openai-gpt')
 const azurelanguageRouter = require('./routes/azureai-language')   
+const dataRouter = require('./routes/azure-data')
 
 // get config
 const config = require('./config.json')
@@ -22,6 +23,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use('/openai', openaiRouter);
 app.use('/azure/language', azurelanguageRouter);
+app.use('/data', dataRouter);
 
 app.get('/api/sayhello', (req, res) => {
     const currentDateTime = new Date();    

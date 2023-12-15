@@ -1,39 +1,36 @@
-# Azure AI (including Azure OpenAI) - powered Conversational Copilot
+# Conversation Copilot with Multimodal Azure AI
 
-AI powered Conversational copilot is a web-based app that enables you to simulate Agent-Customer interactions (in any line of business) and shows the power of Azure AI to augment the human and acts as a very effective copilot. App uses Azure Speech, Azure OpenAI GPT-4 and other AI capabilities to power the copilot experience.
+AI powered Conversational copilot is a web-based app that enables you to simulate Agent-Customer interactions (in any line of business) and shows the power of multimodal Azure AI to augment the human and acts as a very effective copilot. App uses Azure Speech, Azure OpenAI GPT-4 (including GPT Vision) and other AI capabilities to power the copilot experience.
 
-This solution component provides real-time transcription and analysis of a call to improve the customer experience by exctracting custom business insights and providing real-time conversation assistance. This solution can help with agent-assist and virtual agents use cases. Key technical components of this part of the accelerator are:
-    * Transcription of live audio stream using Azure Speech Service
-    * Entity extraction + PII detection and redaction using Azure Language Service
-    * Real-time conversation analysis (against desired conversation template) to provide live agent assistance/coaching
+Customer Interactions using multimodal Azure AI
+* This solution shows a customer interaction where it intercepts voice, text and image data in real-time to power a better and more efficient experience.
+* The real-time pattern presented here can be applied to many business use cases to expedite business insights as well as help make faster business decisions.
+* The same pattern could be used to drive earlier actions for example for customer churn & upsell opportunities.
+
+Key technical components of this part of the accelerator are:
+    * Transcription of live audio stream using Azure AI Speech Service    
+    * Real-time conversation analysis to provide live guidance (for agent assistance/coaching)
+    * Image analysis using GPT-4 Vision to extract key information from images
     * Conversation summarization using Azure OpenAI Service
+    * Entity extraction + PII detection and redaction using Azure Language Service
     * Extract business insights & conversation details using Azure OpenAI Service
 
-This sample simulates call center intelligence in real-time using Azure AI services. It uses Azure Speech SDK to capture audio from a microphone and convert it to text. The text is then sent to Azure Language service to extract entities, key phrases, and detect+ redact PII information. The data is then displayed in a web page in real-time using streaming pattern.
+This solution can help with agent-assist and virtual agents use cases. The pattern could be used to drive better digital experiences for customers and employees leveraging GPT-4 model's ability to understand long-form text, images and ability to reason across the diverse data input.
 
-In parallel, transcript text is sent to Azure OpenAI service to perform live analysis of the conversation and provide real-time guidance to the agent. This could be useful for agent coaching, compliance, upsell and other use cases. Live insights are presented to the agent's UI so it can be used to better serve customer.
-
-Once the call is completed, the transcript is sent to Azure OpenAI service to summarize the call. Azure OpenAI service is also used to parse raw call transcript and extract key business information using domain specific prompts. The data is then displayed in a web page UI.
-
-
-
-This sample shows design pattern examples for authentication token exchange and management, as well as capturing audio from a microphone for speech-to-text conversions.
-
-Below diagram depicts key components and API/communication used in this sample
+Below architecture diagram shows the key components of this solution. 
 <img src="common/images/ai-conversation-copilot-techarch.png" align="center" />
 
-This sample uses Express.js backend framework which allows you to make http calls from any front end. ReactJS is used for frontend app. *NOTE*: This sample is only using the Azure Speech SDK - it does not use Azure Bot Service and Direct Line Speech channel.
+The sample has two runtime components: 
+* **ai-conversational-copilot-apibackend** is an Express-based backend API app. It orchestrates calls to multiple Azure AI services (Azure OpenAI, Azure Speech, Azure Language) and provides a single API endpoint for the frontend webapp to consume.
 
-* **ai-conversational-copilot-apibackend**: `ai-conversational-copilot-apibackend` is an Express-based backend API app. Express is a minimal and flexible Node.js web application framework that provides a robust set of features for web and mobile applications. It facilitates the rapid development of Node based web applications.
-
-* **ai-conversational-copilot-webfrontend**: `ai-conversational-copilot-webfrontend` is a React-based web UI. React.js often referred to as React or ReactJS is a JavaScript library responsible for building a hierarchy of UI components or in other words, responsible for the rendering of UI components. It provides support for both frontend and server-side.
+* **ai-conversational-copilot-webfrontend** is a React-based web UI. This is a frontend webapp that has UI rendering components and also calls the backend API to get real-time insights from Azure AI services.
 
 ## Prerequisites
 
 1. This article assumes that you have an Azure account. If you don't have an Azure account and subscription, [try the Azure account for free](https://azure.microsoft.com/en-us/free/search/).
 2. Create a [Azure Speech resource](https://portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices) in the Azure portal.
 3. Create a [Azure Language resource](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) in the Azure portal.
-4. Create a [Azure OpenAI resource](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=microsoft_openai_tip#create/Microsoft.CognitiveServicesOpenAI?WT.mc_id=academic-84928-cacaste) in the Azure portal. Note: OpenAI is currently in preview and is not available in all regions. You can check the [OpenAI documentation](https://docs.microsoft.com/en-us/azure/cognitive-services/openai/overview?WT.mc_id=academic-84928-cacaste) for more information. This app is using Azure OpenAI Completion API and Chat API. So you will need to create model deployments for completion API and Chat API.
+4. Create a [Azure OpenAI resource](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=microsoft_openai_tip#create/Microsoft.CognitiveServicesOpenAI?WT.mc_id=academic-84928-cacaste) in the Azure portal. Note: OpenAI is currently in preview and is not available in all regions. You can check the [OpenAI documentation](https://docs.microsoft.com/en-us/azure/cognitive-services/openai/overview?WT.mc_id=academic-84928-cacaste) for more information. This app is using Azure OpenAI Completion API, Chat API & GPT-4 Vision. So you will need to create model deployments for completion API, Chat API and GPT-4 Vision.
 5. Install [Node.js](https://nodejs.org/en/download/) on your laptop to run the frontend and backend apps on your local machine.
 
 ## How to Setup and Run this real-time solution component
@@ -43,13 +40,15 @@ This sample uses Express.js backend framework which allows you to make http call
     * ai-conversational-copilot-apibackend folder is for the "ExpressJS Backend" API backend component 
 
 
-2. **Prepare and run the backend app (in folder ai-app-backend)**
+2. **Prepare and run the backend app (in folder ai-conversational-copilot-apibackend)**
     -	Go to ai-conversational-copilot-apibackend directory and run `npm install -all` to install dependencies.
     -   Rename config_template.json to config.json
     -	Update the “config.json” file with your Azure Speech service key (speech_subscription_key property) and Azure region (speech_region property). Azure Region value examples: “eastus2”, “westus”
     -	Update the “config.json” file with your Azure Language service key (text_analytics_key property) and endpoint (text_analytics_endpoint property). 
     -	Update the “config.json” file with your Azure OpenAI service key (openai_key property), endpoint (openai_endpoint property) and deployment name (openai_deployment_name property). These settings are associated with OpenAI completion API.
-    -	Update the “config.json” file with your Azure OpenAI service Chat API model deployment information. NOTE: This app gives you an option to use GPT 3.5 or GPT-4 Chat API. So you only need one model deployment access to use this app. Also, Chat API is used only for copilot functionality. So if you do not enable copilot from the web UI settings then you do not need to configure Chat API settings in this config.json file
+    -	Update the “config.json” file with your Azure OpenAI service Chat API model deployment information. NOTE: Chat API is used for live guidance functionality. So if you do not enable "Live Guidance" from the web UI settings then you do not need to configure Chat API settings in this config.json file.
+    -  Update the “config.json” file with your Azure OpenAI service GPT-4 Vision model deployment information. NOTE: GPT-4 Vision is used for image analysis functionality. So if you do not enable "GPT-Vision" from the web UI settings then you do not need to configure "gptv_key" & "gptv_endpoint" settings in this config.json file. 
+    - Also, Azure storage is only used for image analysis. So if you do not enable "GPT-Vision" from the web UI settings then you do not need to configure "azure_storage_account_name", "azure_storage_connection_string" & "azure_storage_container_name" settings in this config.json file.
     -   Start backend AI API app by running `‘npm start’`
     -	If you are running this locally then try accessing below URLs from browser to verify that the backend component is working as expected
         *	`http://localhost:8080/api/sayhello`
@@ -57,99 +56,36 @@ This sample uses Express.js backend framework which allows you to make http call
     -	If you have deployed ai-app-backend app to Azure App Service (as per instructions below) then you can verify using URLs from browser as below:
         *	`https://<<your backend Azure App service name>>/api/sayhello`
         *	`https://<<your backend Azure App service name>>/api/get-speech-token`
-3.	**Prepare and run the frontend app for web UI (in folder web-app-frontend)**
+3.	**Prepare and run the frontend app for web UI (in folder ai-conversational-copilot-webfrontend)**
     +	Go to ai-conversational-copilot-webfrontend directory and run `npm install -all` to install dependencies.
-    +	Update “src/main.tsx” as following. Set value of “axios.defaults.baseURL” depending on where your ai-conversational-copilot-apibackend is running. 
-        +	If “ai-conversational-copilot-apibackend” is running on local machine then use `axios.defaults.baseURL = 'http://localhost:8080';`
-        +	If “ai-conversational-copilot-apibackend” is running on Azure. Use `axios.defaults.baseURL = 'https://<appname>.azurewebsites.net';`
+    +	Update “src/main.tsx” as following. Set value of “axios.defaults.baseURL” depending on where your ai-conversational-copilot-apibackend is running. You might have to update the port number as well depending on where you are running the backend app.
+        +	If “ai-conversational-copilot-apibackend” is running on local machine using port 8080 then use `axios.defaults.baseURL = 'http://localhost:8080';`
     +   Start frontend web app by running `‘npm start’`. If you get port confict with port 8080 then update package.json file to use any other port (Eg: 8081)
     +	Open a browser and go to `http://localhost:8081` to access the app. 
-    +   Click on the "START Converstation" button on the web page and start talking. You should see transcription displayed on the web page in real-time (an example shown below). You can change spoken language under "Settings". Note that Copilot is disabled by default. Output below is with copilot disabled
+    +   Click on the "Start Converstation" button on the web page and start talking. You should see transcription displayed on the web page in real-time (an example shown below). You can change spoken language under "Settings". Note that Live Guidance is disabled by default. Output below is with Live Guidance enabled.
 
-    <img src="common/images/sampleoutput-copilot-disabled.png " align="center" />
+    <img src="common/images/sampleoutput-liveguidance-enabled.png " align="center" />
 
-    + Remember to click on "END Conversation" to stop live transcription and insights.
-
-
-    +	If you have also deployed the ai-conversational-copilot-webfrontend to Azure App Service then use the deployed app service URL which you can find on Azure portal for your App Service. Example: `https://myweb-app-frontend.azurewebsites.net`
-
-## How to use Conversational Copilot
-
-1. Configure copilot settings: 
-    * This app is designed to support conversations for any business scenario. The goal of the copilot is to assist with conversation template for a given conversation scenario. 
-    * To use the copilot, go to "Settings" and then "Enable Copilot"
-    * When you enable copilot, you need to provide a conversation template (see an example below).
-    * Copilot can use GPT 3.5 or GPT 4 Chat API. Depending on what model you have access to, select the appropriate option under "Settings" tab.
-    * GPT-4 usage is HIGHLY RECOMMENDED for the copilot functionality.
-
-    <img src="common/images/copilot-settings.png " align="center" />
-
-2. Use the copilot:
-    * Once copilot is configured, lick on the "START Converstation" button on the web page and start talking. You should see transcription displayed on the web page in real-time and copilot guidance displayed below that. Note that coplit guidance is based on the natural language template you provide in the settings; you can update the template as necessary and can also tune the template questions/wordings. An example with copilot guidance is shown below.
-
-    <img src="common/images/copilot-sample-output.png " align="center" />
-
-## Deploying sample code to Azure App Service
-You can deploy your Node.js app using VS Code and the Azure App Service extension. Follow instructions [Deploy NodeJS using Azure App Service]:https://docs.microsoft.com/en-us/azure/app-service/quickstart-nodejs?pivots=platform-linux#deploy-to-azure that explains how to deploy any node app to Azure App Service. 
-
-* To deploy **ai-conversational-copilot-apibackend** to Azure App Service, select the “ai-conversational-copilot-apibackend” as the root folder when prompted in the VS code. This app has been successfully deployed to Azure App Service with following settings:
-    - Stack: Node 18
-    - Operating System: Linux
-    - Validate that your ExpressJS backend is successfully deployed by trying to access one of the two APIs hosted by your backend
-    - `https://<<your backend Azure App service name>>/api/sayhello`
-    - `https://<<your backend Azure App service name>>/api/get-speech-token`
-
-* Similarly, you can deploy **ai-conversational-copilot-webfrontend** to another Azure App Service instance by selecting the root folder for this app. This sample assumes that you are deploying the frontend and the backend app on a **separate** app service instance.
-    - Before deploying your “ai-conversational-copilot-webfrontend”, Update “src/main.tsx” as following. Set value of “axios.defaults.baseURL” to point to the backend Azure URL `axios.defaults.baseURL = 'https://<appname>.azurewebsites.net';`
-    - In your webfrontend package.json, ensure it is set to use port 8080 with exact settings below '"dev": "vite --port 8080 --host",'
-    - Deploy your frontend after updating package.json.
-    - Once the application is successfully deployed to Azure App Service, go to Web App -> Configuration -> General Settings and enter following under "Startup Command" `npm run dev`. This will correctly start your webfrontend.
-    - You should now be able to access the web app and do real-time transcription from a browser from your mobile phone or any other device that can access the app service url. 
-
-## Issues and resolutions
-
-<table>
-<tr>
-<td> Issue/Error </td> <td> Resolutions </td>
-</tr>
-<tr>
-<td> **Frontend app initialization error** You might get SSL related errors when starting the frontend web app depending on the node version that's installed on your laptop. Error could be ERR_OSSL_EVP_UNSUPPORTED or similar. </td>
-<td>
+    + Remember to click on "End Conversation" to stop live transcription and insights.
 
 
-In the web-app-frontend folder, in the package.json, try to change this:
-```json
-"scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
-```
-To
+## Selecting AI Features to use
+This solution is modular and you can select which AI features you want to use. You can enable/disable AI features from the web UI settings. Below are the AI features that you can enable/disable from the web UI settings.
+1. **Live Guidance**: This feature uses Azure OpenAI Chat API (GPT-4) to provide live guidance to the agent. This feature is disabled by default. To enable this feature, go to "Settings" and then enable "Live Guidance". You can update the conversation template as necessary and can also tune the template questions/wordings. An example of live guidance configuratio is shown below.
 
-```json
-"scripts": {
-    "start": "react-scripts --openssl-legacy-provider start",
-    "build": "react-scripts --openssl-legacy-provider build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
-``` 
-That might fix the issue
+    <img src="common/images/configure-liveguidance.png " align="center" />
 
+2. **GPT-Vision**: This feature uses Azure OpenAI GPT-4 Vision to extract key information from images. This feature is disabled by default. To enable this feature, go to "Settings" and then enable "GPT-Vision". An example of GPT-Vision output is shown below.
 
-</td>
-</tr>
-<tr>
-<td> "Invalid Host Header" error in the browser when running the web Frontend </td>
-<td>
+    <img src="common/images/sampleoutput-gptv-cardamage.png " align="center" />
 
-Add DANGEROUSLY_DISABLE_HOST_CHECK=true in the .env for the front end. This solution is not recommended for production deployment. This is to enable a quick demonstration of real-time speech streaming capability using the web browser. 
+3. **Conversation Summarization & custom prompts**: This feature uses Azure OpenAI Completion API to summarize the conversation or extract insights using custom prompts. This feature is disabled by default. To enable this feature, go to "Settings" and then enable "Custom Prompts". An example of conversation summarization output is shown below.
 
-</td>
-</tr>
-</table>
+    <img src="common/images/summary-customprompt.png " align="center" />
+
+4. **Conversation Transcript**: This feature uses Azure AI Speech service to perform real-time transcription of the conversation. This feature is enabled by default and can not be disabled. To hide real-time conversation transcript, go to "Settings" and then disable "Live Transcription". This will only hide the transcript from the web UI. The transcript will still be available in the backend API and can be used for other AI features.
+
+5. **Entity Extraction & PII Detection**: This feature uses Azure AI Language Service to extract entities and detect PII information. This feature is enabled by default and can not be disabled. To hide this information, go to "Settings" and then disable "Live Transcription". 
 
 
 ## Getting started
