@@ -1,20 +1,22 @@
 # Conversation Copilot with Multimodal Azure AI
+AI-powered Conversation copilot is a web-based app that enables you to simulate Agent-Customer interactions (in any line of business) and shows the power of multimodal Azure AI to augment the human and acts as a very effective copilot. 
 
-AI powered Conversational copilot is a web-based app that enables you to simulate Agent-Customer interactions (in any line of business) and shows the power of multimodal Azure AI to augment the human and acts as a very effective copilot. App uses Azure Speech, Azure OpenAI GPT-4 (including GPT Vision) and other AI capabilities to power the copilot experience.
+Solution uses Azure AI’s powerful multimodal understanding of long-form text, images and ability to reason across the diverse data input to power the copilot experience.
 
-**This solution highlights Customer Interactions using multimodal Azure AI**
-* This solution shows a customer interaction where it intercepts voice, text and image data in real-time to power a better and more efficient experience.
-* The real-time pattern presented here can be applied to many business use cases to expedite business insights as well as help make faster business decisions.
-* The same pattern could be used to drive earlier actions for example for customer churn & upsell opportunities.
-* This solution can help with agent-assist and virtual agents use cases. The pattern could be used to drive better digital experiences for customers and employees leveraging GPT-4 model's ability to understand long-form text, images and ability to reason across the diverse data input.
+**Solution highlights Customer Interactions using multimodal Azure AI**
+* Solution implements a pattern for customer interaction where it intercepts voice, text and image data in real-time to power a better and more efficient experience.
+* The real-time pattern implemented here can be applied to expedite business insights & make faster business decisions.
+    * Drive earlier actions: for example customer churn & upsell opportunities.
+    * Live guidance to enable agent-assist, coaching and virtual agents use cases.
+* Pattern could be used to drive better digital experiences for customers/employees
+    * Could be used to mobile/web experiences (not just call centers).
 
-**Key technical components of this part of the accelerator are:**
-* Transcription of live audio stream using Azure AI Speech Service    
-* Real-time conversation analysis to provide live guidance (using Azure OpenAI GPT-4 Chat API)
-* Image analysis to extract key information from images (using Azure OpenAI GPT-4 Vision API)
-* Conversation summarization (using Azure OpenAI completion API)
-* Entity extraction + PII detection and redaction (using Azure Language Service)
-* Extract business insights & conversation details (using Azure OpenAI completion API)
+**Key features of this solution:**
+1. **Live Guidance**: Real-time conversation analysis to provide live guidance.
+2. **GPT-Vision for image analysis**: Extract key information & insights from images.
+3. **Conversation Summarization & custom insight**: Extract custom business insights & conversation summarization.
+4. **Conversation Transcript**: Transcription of live audio stream (using laptop mic or headphone).
+5. **Entity Extraction & PII Detection**.
 
 ## Architecture
 Below architecture diagram shows the key components of this solution. 
@@ -67,8 +69,6 @@ The solution has two runtime components:
 
     <img src="common/images/sampleoutput-liveguidance-enabled.png " align="center" />
 
-    
-
 
 ## Selecting AI Features to use
 This solution is modular and you can select which AI features you want to use. You can enable/disable AI features from the web UI settings. Below are the AI features that you can enable/disable from the web UI settings.
@@ -89,9 +89,6 @@ This solution is modular and you can select which AI features you want to use. Y
 5. **Entity Extraction & PII Detection**: This feature uses Azure AI Language Service to extract entities and detect PII information. This feature is enabled by default and can not be disabled. To hide this information, go to "Settings" and then disable "Live Transcription". 
 
 
-## Getting started
-
-Follow the individual instructions for each step of the accelerator provided within above `Folders`.
 
 ## License
 Copyright (c) Microsoft Corporation
