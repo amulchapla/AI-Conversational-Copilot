@@ -1,12 +1,10 @@
 # Conversation Copilot with Multimodal Azure AI
-AI-powered Conversation copilot is a web-based app that enables you to simulate Agent-Customer interactions (in any line of business) and shows the power of multimodal Azure AI to augment the human and acts as a very effective copilot. 
+Conversation copilot is a web-based app that enables you to simulate Agent-Customer interactions (in any line of business) and shows the power of AI to act as a very effective copilot. It uses Azure AI’s powerful multimodal understanding of long-form text, images and ability to reason across the diverse data input to power the copilot experience.
 
-Solution uses Azure AI’s powerful multimodal understanding of long-form text, images and ability to reason across the diverse data input to power the copilot experience.
-
-**Solution highlights Customer Interactions using multimodal Azure AI**
-* Solution implements a pattern for customer interaction where it intercepts voice, text and image data in real-time to power a better and more efficient experience.
-* The real-time pattern implemented here can be applied to expedite business insights & make faster business decisions.
-    * Drive earlier actions: for example customer churn & upsell opportunities.
+**Solution highlights:**
+* A pattern for customer interaction where it **intercepts voice, text and image data in real-time** to power a better and more efficient end-user experience.
+* The real-time pattern implemented here can be applied to **expedite business insights & make faster business decisions**.
+    * *Drive earlier actions: for example customer churn & upsell opportunities.
     * Live guidance to enable agent-assist, coaching and virtual agents use cases.
 * Pattern could be used to drive better digital experiences for customers/employees
     * Could be used to mobile/web experiences (not just call centers).
