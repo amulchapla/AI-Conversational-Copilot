@@ -3,11 +3,9 @@ Conversation copilot is a web-based app that enables you to simulate Agent-Custo
 
 <img src="common/images/solution-overview.png" align="center" />
 
-Most customer interactions involve diverse data signals such as voice, text, images, documents and videos. To extract insights from these diverse data inputs could be a challenging task if you try to build custom AI models to handle different data input for different business use cases. This solution leverages Microsoft's comprehensive AI platform to enable you to process multimodal signals such as audio, video, text, image, documents and extract insights in real-time.
-
 **Solution highlights:**
-* A pattern for customer interaction where it **intercepts voice, text and image data in real-time** to power a better and more efficient end-user experience.
-* The real-time pattern implemented here can be applied to **expedite business insights & make faster business decisions**.
+* A pattern for customer interaction where it intercepts voice, text and image data in real-time to power a better and more efficient end-user experience.
+* The real-time pattern implemented here can be applied to expedite business insights & make faster business decisions.
     * Drive earlier actions: for example customer churn & upsell opportunities.
     * Live guidance to enable agent-assist, coaching and virtual agents use cases.
 * Pattern could be used to drive better digital experiences for customers/employees
@@ -18,7 +16,7 @@ Most customer interactions involve diverse data signals such as voice, text, ima
 2. **GPT-Vision for image analysis**: Extract key information & insights from images.
 3. **Conversation Summarization & custom insight**: Extract custom business insights & conversation summarization.
 4. **Conversation Transcript**: Transcription of live audio stream (using laptop mic or headphone).
-5. **Entity Extraction & PII Detection**.
+5. **Entity Extraction & PII Detection** including real-time PII redaction.
 
 ## Architecture
 Below architecture diagram shows the key components of this solution. 
