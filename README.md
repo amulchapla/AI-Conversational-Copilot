@@ -1,10 +1,14 @@
 # Conversation Copilot with Multimodal Azure AI
 Conversation copilot is a web-based app that enables you to simulate Agent-Customer interactions (in any line of business) and shows the power of AI to act as a very effective copilot. It uses Azure AI’s powerful multimodal understanding of long-form text, images and ability to reason across the diverse data input to power the copilot experience.
 
+<img src="common/images/solution-overview.png" align="center" />
+
+Most customer interactions involve diverse data signals such as voice, text, images, documents and videos. To extract insights from these diverse data inputs could be a challenging task if you try to build custom AI models to handle different data input for different business use cases. This solution leverages Microsoft's comprehensive AI platform to enable you to process multimodal signals such as audio, video, text, image, documents and extract insights in real-time.
+
 **Solution highlights:**
 * A pattern for customer interaction where it **intercepts voice, text and image data in real-time** to power a better and more efficient end-user experience.
 * The real-time pattern implemented here can be applied to **expedite business insights & make faster business decisions**.
-    * *Drive earlier actions: for example customer churn & upsell opportunities.
+    * Drive earlier actions: for example customer churn & upsell opportunities.
     * Live guidance to enable agent-assist, coaching and virtual agents use cases.
 * Pattern could be used to drive better digital experiences for customers/employees
     * Could be used to mobile/web experiences (not just call centers).
@@ -21,9 +25,9 @@ Below architecture diagram shows the key components of this solution.
 <img src="common/images/ai-conversation-copilot-techarch.png" align="center" />
 
 The solution has two runtime components: 
-* **ai-conversational-copilot-apibackend** is an Express-based backend API app. It orchestrates calls to multiple Azure AI services (Azure OpenAI, Azure Speech, Azure Language) and provides a single API endpoint for the frontend webapp to consume.
+* **API backend** is an Express-based backend API app. It orchestrates calls to multiple Azure AI services (Azure OpenAI, Azure Speech, Azure Language) and provides API endpoint for the frontend webapp to consume.
 
-* **ai-conversational-copilot-webfrontend** is a React-based web UI. This is a frontend webapp that has UI rendering components and also calls the backend API to get real-time insights from Azure AI services.
+* **Web frontend** is a React-based web UI. It captures voice, text, image data and interacts with the backend API to get real-time insights from Azure AI services.
 
 ## Prerequisites
 
@@ -86,7 +90,12 @@ This solution is modular and you can select which AI features you want to use. Y
 
 5. **Entity Extraction & PII Detection**: This feature uses Azure AI Language Service to extract entities and detect PII information. This feature is enabled by default and can not be disabled. To hide this information, go to "Settings" and then disable "Live Transcription". 
 
+## Using Azure OpenAI Service via Private Link from a different region
+Azure OpenAI Service is powered by a diverse set of models with different capabilities and price points. Model availability [varies by region](https://learn.microsoft.com/en-us/azure/ai-services/openai/concepts/models).
 
+You can consume Azure OpenAI service from a different region using private link ensuring the traffic traverses the Microsoft backbone network. This will ensure that the traffic is secure and does not traverse the public internet. You can follow the architecture below to setup private link for Azure OpenAI service. The private-link resource can be deployed in a different region than the one for the virtual network and private endpoint - more details [here](https://learn.microsoft.com/en-us/azure/private-link/private-endpoint-overview).
+
+<img src="common/images/aoai-privatelink-cross-region.png" align="center" />
 
 ## License
 Copyright (c) Microsoft Corporation
