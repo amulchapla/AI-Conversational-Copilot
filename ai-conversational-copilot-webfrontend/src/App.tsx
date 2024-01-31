@@ -234,7 +234,8 @@ export default class App extends Component<{}, AppState> {
   }
 
   async getImageSasUrls(){    
-    var caseNumber = (document.getElementById("casenumbertextarea") as HTMLTextAreaElement).value;
+    //var caseNumber = (document.getElementById("casenumbertextarea") as HTMLTextAreaElement).value;
+    var caseNumber = this.state.caseNumber;
     const imageListObj = await getImageSasUrls(String(caseNumber));
     this.setState({imageList :imageListObj.data});
     const imageListWithGptvObj = await getGPTVInsights(imageListObj.data);
@@ -312,12 +313,8 @@ export default class App extends Component<{}, AppState> {
                                 </div>
                             </div>
                             )}
-                            <Label>Need help with this demo?</Label>
-                            <Text>{'Here is  '}
-                              <Link href="https://azureopenaicallintel.z13.web.core.windows.net/" underline target="_blank">
-                                How-to videos & demo resources
-                              </Link>{' '}         
-                            </Text>
+                            <Label>Demo delivery instruction video & resources are <a href="https://conversationcopilotdemo.z14.web.core.windows.net/" target="_blank" rel="noopener noreferrer">available here</a></Label>
+                            
                             <PrimaryButton text="Close" className="customButtons2" onClick={this.closeSettingsPanel} styles={{ root: { marginTop: '16px'} }} />
                       </Panel>
                       </div>

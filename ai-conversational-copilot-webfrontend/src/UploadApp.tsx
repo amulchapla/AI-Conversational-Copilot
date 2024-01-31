@@ -71,9 +71,10 @@ const UploadApp: React.FC = () => {
       <header className="App-header">    
         <h3>Case Management</h3>  
         <p></p>
-        <p className="photo-collection">Please upload photos</p>     
+        <p className="photo-collection">Please upload photos (max 3)</p>     
       </header>   
       <div className="App-body">    
+        <p>Limited to 3 images for this app (GPTV supports more)</p>
         <form onSubmit={onFormSubmit}>    
           <input type="file" ref={fileInput} onChange={handleFileChange} multiple />    
           <div className="image-preview">    
