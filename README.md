@@ -62,7 +62,7 @@ The solution has two runtime components:
     +	Go to ai-conversational-copilot-webfrontend directory and run `npm install -all` to install dependencies.
     +	Update “src/main.tsx” as following. Set value of “axios.defaults.baseURL” depending on where your ai-conversational-copilot-apibackend is running. You might have to update the port number as well depending on where you are running the backend app.
         +	If “ai-conversational-copilot-apibackend” is running on local machine using port 8080 then use `axios.defaults.baseURL = 'http://localhost:8080';`
-    +   Start frontend web app by running `‘npm start’`. If you get port confict with port 8080 then update package.json file to use any other port (Eg: 8081)
+    +   Start frontend web app by running `‘npm run dev’`. If you get port confict with port 8080 then update package.json file to use any other port (Eg: 8081)
     +	Open a browser and go to `http://localhost:8081` to access the app. 
     +   Click on the "Start Converstation" button on the web page and start talking. You should see transcription displayed on the web page in real-time (an example shown below). You can change spoken language under "Settings". Note that Live Guidance is disabled by default. Output below is with Live Guidance enabled.
     +   Remember to click on "End Conversation" to stop live transcription and insights.
