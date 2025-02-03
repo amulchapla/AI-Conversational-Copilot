@@ -299,7 +299,7 @@ export default class App extends Component<{}, AppState> {
                               <Label>Select AI Features to Show:</Label>
                               <Toggle label="Live Transcription" onText="Shown" offText="Hidden" inlineLabel checked={this.state.showTranscriptPanel} onChange={this.handleTranscriptPanelToggleChange}/>
                               <Toggle label="Custom Prompts" onText="Shown" offText="Hidden" inlineLabel checked={this.state.showPromptPanel} onChange={this.handlePromptPanelToggleChange}/>           
-                              <Toggle label="GPT-Vision" onText="Shown" offText="Hidden" inlineLabel checked={this.state.showPhotoPanel} onChange={this.handlePhotoPanelToggleChange}/>           
+                              <Toggle label="GPT-4o vision" onText="Shown" offText="Hidden" inlineLabel checked={this.state.showPhotoPanel} onChange={this.handlePhotoPanelToggleChange}/>           
                               <Toggle label="Live Guidance" onText="Enabled" offText="Disabled" inlineLabel checked={this.state.copilotChecked} onChange={this.handleToggleChange}/>
                             </div>
                             {this.state.copilotChecked && (
@@ -407,7 +407,7 @@ export default class App extends Component<{}, AppState> {
                                   const url = `/upload/${this.state.caseNumber}`;  
                                   window.open(url, '_blank');  
                               }}> Go to Photo Upload</PrimaryButton> 
-                              <PrimaryButton className="customButtons2" onClick={() => this.getImageSasUrls()}>Ask GPT-Vision</PrimaryButton> 
+                              <PrimaryButton className="customButtons2" onClick={() => this.getImageSasUrls()}>Ask GPT-4o Vision</PrimaryButton> 
                               </div>
                           </form>            
                         </PivotItem>       
