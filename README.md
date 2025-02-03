@@ -13,7 +13,7 @@ Conversation copilot is a web-based app that enables you to simulate Agent-Custo
 
 **Key features of this solution:**
 1. **Live Guidance**: Real-time conversation analysis to provide live guidance.
-2. **GPT-Vision for image analysis**: Extract key information & insights from images.
+2. **GPT 4o multimodal for image analysis**: Extract key information & insights from images.
 3. **Conversation Summarization & custom insight**: Extract custom business insights & conversation summarization.
 4. **Conversation Transcript**: Transcription of live audio stream (using laptop mic or headphone).
 5. **Entity Extraction & PII Detection** including real-time PII redaction.
@@ -76,7 +76,7 @@ This solution is modular and you can select which AI features you want to use. Y
 
     <img src="common/images/configure-liveguidance.png " align="center" />
 
-2. **GPT-Vision**: This feature uses Azure OpenAI GPT-4 Vision to extract key information from images. This feature is disabled by default. To enable this feature, go to "Settings" and then enable "GPT-Vision". An example of GPT-Vision output is shown below.
+2. **GPT-Vision**: This feature uses Azure OpenAI GPT-4o Vision to extract key information from images. This feature is disabled by default. To enable this feature, go to "Settings" and then enable "GPT-Vision". An example of GPT-4o (formerly GPT-Vision) output is shown below.
 
     <img src="common/images/sampleoutput-gptv-cardamage.png " align="center" />
 
